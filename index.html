@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterLink</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-1">
+      <a href="#" class="logo"><i class="fas fa-university"></i> InterLink</a>
+      <form class="search-form">
+        <input type="search" placeholder="Search data..." id="search-box"/>
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+      <div class="icons">
+        <a href="login.html" class="fas fa-user"></a>
+      </div>
+    </div>
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="users.html">Users</a>
+        <a href="applications.html">Applications</a>
+        <a href="placements.html">Placements</a>
+        <a href="reports.html">Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Bottom nav -->
+  <nav class="bottom-navbar">
+    <a href="#overview" class="fas fa-home"></a>
+    <a href="users.html" class="fas fa-users"></a>
+    <a href="applications.html" class="fas fa-file-alt"></a>
+    <a href="placements.html" class="fas fa-briefcase"></a>
+    <a href="reports.html" class="fas fa-chart-bar"></a>
+  </nav>
+
+  <!-- Hero section -->
+  <section class="home" id="overview">
+    <div class="row">
+      <div class="content">
+        <h3>Welcome to InterLink</h3>
+        <p>A streamlined platform for managing students, applications, and placements in one unified system.</p>
+        <a href="users.html" class="btn">Get Started</a>
+      </div>
+      <div class="books-slider">
+        <div class="swiper-wrapper">
+          <a href="#" class="swiper-slide"><img src="image/book-1.png" alt=""/></a>
+          <a href="#" class="swiper-slide"><img src="image/book-2.png" alt=""/></a>
+        </div>
+        <img src="image/stand.png" class="stand" alt=""/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature cards -->
+  <section class="icons-container">
+    <div class="icons">
+      <i class="fas fa-users"></i>
+      <div class="content">
+        <h3>Users Managed</h3>
+        <p>Admin, students, companies</p>
+      </div>
+    </div>
+    <div class="icons">
+      <i class="fas fa-file-alt"></i>
+      <div class="content">
+        <h3>Application Tracking</h3>
+        <p>End-to-end student progress</p>
+      </div>
+    </div>
+    <div class="icons">
+      <i class="fas fa-briefcase"></i>
+      <div class="content">
+        <h3>Company Placement</h3>
+        <p>Real-world opportunities</p>
+      </div>
+    </div>
+    <div class="icons">
+      <i class="fas fa-chart-line"></i>
+      <div class="content">
+        <h3>Reporting</h3>
+        <p>Visual stats and dashboards</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <form>
+      <h3>Subscribe for updates</h3>
+      <input type="email" placeholder="Enter your email" class="box"/>
+      <input type="submit" value="Subscribe" class="btn"/>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer" id="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="#overview">Overview</a>
+        <a href="#overview">Users</a>
+        <a href="#overview">Applications</a>
+        <a href="#overview">Placements</a>
+      </div>
+      <div class="box">
+        <h3>Developer Contact</h3>
+        <a href="mailto:jaredthomas570j@gmail.com">jaredthomas570j@gmail.com</a>
+        <a href="tel:+254715179802">+254715179802</a>
+        <a href="https://github.com/jaredthomas01">GitHub</a>
+        <a href="https://linkedin.com/in/jared-thomas-441834258">LinkedIn</a>
+      </div>
+    </div>
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

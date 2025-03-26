@@ -1,0 +1,267 @@
+/* InterLink System CSS using Byte Genius Template */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root {
+  --green: #27ae60;
+  --dark-color: #219150;
+  --black: #444;
+  --light-color: #666;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --border-hover: 0.1rem solid var(--black);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 5rem 9%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.heading span {
+  font-size: 3rem;
+  padding: 0.5rem 2rem;
+  background: #fff;
+  border: var(--border);
+  color: var(--black);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background: var(--green);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background: var(--dark-color);
+}
+
+.header .header-1 {
+  background: #fff;
+  padding: 1.5rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+}
+
+.header .header-1 .logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.header .header-1 .logo i {
+  color: var(--green);
+}
+
+.header .header-1 .search-form {
+  width: 50rem;
+  height: 5rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border: var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.header .header-1 .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 0 1.2rem;
+  color: var(--black);
+  text-transform: none;
+}
+
+.header .header-1 .search-form label {
+  font-size: 2rem;
+  padding-right: 1.5rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.header .header-2 {
+  background: var(--green);
+  padding: 1rem 9%;
+  text-align: center;
+}
+
+.header .header-2 .navbar a {
+  color: #fff;
+  padding: 1.2rem;
+  font-size: 1.7rem;
+  display: inline-block;
+}
+
+.header .header-2 .navbar a:hover {
+  background: var(--dark-color);
+}
+
+.bottom-navbar {
+  display: none;
+  background: var(--green);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.bottom-navbar a {
+  font-size: 2.5rem;
+  padding: 2rem;
+  color: #fff;
+}
+
+.bottom-navbar a:hover {
+  background: var(--dark-color);
+}
+
+.home .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.home .row .content {
+  flex: 1 1 42rem;
+  text-align: center;
+}
+
+.home .row .content h3 {
+  font-size: 4.5rem;
+  color: var(--black);
+}
+
+.home .row .content p {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+.icons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.icons-container .icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #fff;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  border-radius: 1rem;
+}
+
+.icons-container .icons i {
+  font-size: 3.5rem;
+  color: var(--green);
+}
+
+.icons-container .icons h3 {
+  font-size: 2.2rem;
+  color: var(--black);
+}
+
+.icons-container .icons p {
+  font-size: 1.4rem;
+  color: var(--light-color);
+}
+
+.newsletter {
+  background: url(../image/letter-bg.jpg) no-repeat center;
+  background-size: cover;
+  padding: 4rem 9%;
+  text-align: center;
+}
+
+.newsletter form {
+  max-width: 45rem;
+  margin: auto;
+}
+
+.newsletter form h3 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.newsletter form .box {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.footer {
+  background: #f3f3f3;
+  padding: 3rem 9%;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+.footer .box-container .box a {
+  display: block;
+  color: var(--light-color);
+  font-size: 1.4rem;
+  margin: 0.3rem 0;
+}
+
+.footer .credit {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--light-color);
+  padding-top: 2rem;
+}
+
+.footer .credit span {
+  color: var(--green);
+  font-weight: bold;
+}
