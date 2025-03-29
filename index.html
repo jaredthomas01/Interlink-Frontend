@@ -91,14 +91,54 @@
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="newsletter">
-    <form>
-      <h3>Subscribe for updates</h3>
-      <input type="email" placeholder="Enter your email" class="box"/>
-      <input type="submit" value="Subscribe" class="btn"/>
-    </form>
-  </section>
+  <!-- JOB SECTION -->
+    <section class="job-section">
+  <div class="job-header">
+    <h2>Find the right job or internship for you</h2>
+  </div>
+  <div class="job-listing">
+    <ul class="job-list" data-max-num-to-show="10">
+      <li>Engineering</li>
+      <li>Business Development</li>
+      <li>Finance</li>
+      <li>Administrative Assistant</li>
+      <li>Retail Associate</li>
+      <li>Customer Service</li>
+      <li>Operations</li>
+      <li>Information Technology</li>
+      <li>Marketing</li>
+      <li>Human Resources</li>
+      <li>Healthcare Service</li>
+      <li>Sales</li>
+      <li>Program and Project Management</li>
+      <li>Accounting</li>
+      <li>Arts and Design</li>
+      <li>Community and Social Services</li>
+      <li>Consulting</li>
+      <li>Education</li>
+      <li>Entrepreneurship</li>
+      <li>Legal</li>
+      <li>Media and Communications</li>
+      <li>Military and Protective Services</li>
+      <li>Product Management</li>
+      <li>Purchasing</li>
+      <li>Quality Assurance</li>
+      <li>Real Estate</li>
+      <li>Research</li>
+      <li>Support</li>
+      <li>Administrative</li>
+    </ul>
+
+    <div class="toggle-buttons">
+      <button class="toggle-btn show-more">
+        Show more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <button class="toggle-btn show-less">
+        Show less <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
 
   <!-- Footer -->
   <section class="footer" id="footer">
@@ -115,6 +155,7 @@
         <a href="mailto:jaredthomas570j@gmail.com">jaredthomas570j@gmail.com</a>
         <a href="tel:+254715179802">+254715179802</a>
         <a href="https://github.com/jaredthomas01">GitHub</a>
+        <a href="https://twitter.com/jinela001"> Twitter</a>
         <a href="https://linkedin.com/in/jared-thomas-441834258">LinkedIn</a>
       </div>
     </div>
@@ -123,6 +164,30 @@
 
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const list = document.querySelector('[data-max-num-to-show]');
+      const showMoreBtn = document.querySelector('.show-more');
+      const showLessBtn = document.querySelector('.show-less');
+      const maxVisible = parseInt(list.dataset.maxNumToShow, 10);
+      const items = Array.from(list.querySelectorAll('li'));
+  
+      function updateView(showAll = false) {
+        items.forEach((item, index) => {
+          item.style.display = (showAll || index < maxVisible) ? "inline-block" : "none";
+        });
+        showMoreBtn.style.display = showAll ? "none" : "inline-flex";
+        showLessBtn.style.display = showAll ? "inline-flex" : "none";
+      }
+  
+      updateView(false);
+  
+      showMoreBtn.addEventListener("click", () => updateView(true));
+      showLessBtn.addEventListener("click", () => updateView(false));
+    });
+  </script>
+  
 
 </body>
 </html>
