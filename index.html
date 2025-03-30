@@ -59,7 +59,8 @@
         <p>A streamlined platform for managing students, applications, and placements in one unified system.</p>
         <a href="users.html" class="btn">Get Started</a>
       </div>
-      <!-- <div class="swiper books-slider">
+
+      <div class="swiper books-slider">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide"><img src="image/book-1.png" alt=""></a>
             <a href="#" class="swiper-slide"><img src="image/book-2.png" alt=""></a>
@@ -69,7 +70,8 @@
             <a href="#" class="swiper-slide"><img src="image/book-6.png" alt=""></a>
         </div>
         <img src="image/stand.png" class="stand" alt="">
-    </div> -->
+    </div>
+    
     </div>
   </section>
 
@@ -181,7 +183,7 @@
         <div class="swiper-wrapper">
 
             <div class="swiper-slide box">
-                <img src="image/pic-1.png" alt="">
+                <img src="image/pic-1.png" alt="image1">
                 <h3>John Watts</h3>
                 <p>InterLink helped me discover internship opportunities I never knew existed. The application process was seamless and quick!</p>
                 <div class="stars">
@@ -194,7 +196,7 @@
             </div>
 
             <div class="swiper-slide box">
-                <img src="image/pic-2.png" alt="">
+                <img src="image/pic-2.png" alt="image2">
                 <h3>Sophy Kerubo</h3>
                 <p>Using InterLink, I was able to connect with multiple companies offering attachment positions. It saved me a lot of time and effort</p>
                 <div class="stars">
@@ -367,28 +369,6 @@
   <script src="script.js"></script>
   <script src="luxon.js"></script>
   
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const list = document.querySelector('[data-max-num-to-show]');
-      const showMoreBtn = document.querySelector('.show-more');
-      const showLessBtn = document.querySelector('.show-less');
-      const maxVisible = parseInt(list.dataset.maxNumToShow, 10);
-      const items = Array.from(list.querySelectorAll('li'));
-  
-      function updateView(showAll = false) {
-        items.forEach((item, index) => {
-          item.style.display = (showAll || index < maxVisible) ? "inline-block" : "none";
-        });
-        showMoreBtn.style.display = showAll ? "none" : "inline-flex";
-        showLessBtn.style.display = showAll ? "inline-flex" : "none";
-      }
-  
-      updateView(false);
-  
-      showMoreBtn.addEventListener("click", () => updateView(true));
-      showLessBtn.addEventListener("click", () => updateView(false));
-    });
-  </script>
   
 
 </body>

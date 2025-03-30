@@ -186,28 +186,46 @@ section {
     background-position: center;
 }
 
-.home .row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.home .row{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
 }
 
-.home .row .content {
-  flex: 1 1 42rem;
-  text-align: center;
+.home .row .content{
+    flex:1 1 42rem;
 }
 
-.home .row .content h3 {
-  font-size: 4.5rem;
-  color: var(--black);
+.home .row .books-slider{
+    flex:1 1 42rem;
+    text-align: center;
+    margin-top: 2rem;
 }
 
-.home .row .content p {
-  font-size: 1.4rem;
-  color: var(--light-color);
-  line-height: 2;
-  padding: 1rem 0;
+.home .row .books-slider a img{
+    height: 25rem;
+}
+
+.home .row .books-slider a:hover img{
+    transform: scale(.9);
+}
+
+.home .row .books-slider .stand{
+    width:100%;
+    margin-top: -2rem;
+}
+
+.home .row .content h3{
+    color:var(--black);
+    font-size: 4.5rem;
+}
+
+.home .row .content p{
+    color:var(--light-color);
+    font-size: 1.4rem;
+    line-height: 2;
+    padding:1rem 0;
 }
 
 .icons-container {
