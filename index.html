@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InterLink</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header section starts -->
   <header class="header">
     <div class="header-1">
       <a href="#" class="logo"><i class="fas fa-university"></i> InterLink</a>
@@ -41,11 +47,11 @@
     <a href="users.html" class="fas fa-users"></a>
     <a href="applications.html" class="fas fa-file-alt"></a>
     <a href="placements.html" class="fas fa-briefcase"></a>
-    <a href="#reviews"> <i class="fas fa-comments"></i> Reviews </a>
-    <a href="#blogs"> <i class="fas fa-blog"></i> Blogs </a>
+    <a href="#Reviews" class="fas fa-comments"></a>
+    <a href="#Blogs" class="fas fa-blog"></a>
   </nav>
 
-  <!-- Hero section -->
+  <!-- Home section section starts -->
   <section class="home" id="overview">
     <div class="row">
       <div class="content">
@@ -53,17 +59,17 @@
         <p>A streamlined platform for managing students, applications, and placements in one unified system.</p>
         <a href="users.html" class="btn">Get Started</a>
       </div>
-      <div class="swiper books-slider">
+      <!-- <div class="swiper books-slider">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide"><img src="image/book-1.png" alt=""></a>
             <a href="#" class="swiper-slide"><img src="image/book-2.png" alt=""></a>
             <a href="#" class="swiper-slide"><img src="image/book-3.png" alt=""></a>
-            <!-- <a href="#" class="swiper-slide"><img src="image/book-4.png" alt=""></a> -->
-            <!-- <a href="#" class="swiper-slide"><img src="image/book-5.png" alt=""></a>
-            <a href="#" class="swiper-slide"><img src="image/book-6.png" alt=""></a> -->
+            <a href="#" class="swiper-slide"><img src="image/book-4.png" alt=""></a>
+            <a href="#" class="swiper-slide"><img src="image/book-5.png" alt=""></a>
+            <a href="#" class="swiper-slide"><img src="image/book-6.png" alt=""></a>
         </div>
         <img src="image/stand.png" class="stand" alt="">
-    </div>
+    </div> -->
     </div>
   </section>
 
@@ -154,11 +160,21 @@
 
 <!-- JOB SECTION starts -->
 
+<!-- Post Job Call-to-Action Section Starts -->
+<section class="post-job-section">
+    <div class="post-job-container">
+      <h2>Post your job for millions of people to see</h2>
+      <a href="post-job.html" class="post-job-btn">Post a job</a>
+    </div>
+  </section>
+  <!-- Post Job Call-to-Action Section Ends -->
+  
+
 <!-- reviews section starts  -->
 
 <section class="reviews" id="reviews">
 
-    <h1 class="heading"> <span>client's reviews</span> </h1>
+    <h1 class="heading"> <span>User's reviews</span> </h1>
 
     <div class="swiper reviews-slider">
 
@@ -167,7 +183,7 @@
             <div class="swiper-slide box">
                 <img src="image/pic-1.png" alt="">
                 <h3>John Watts</h3>
-                <p>The selection of books at Byte Genius is amazing! I always find something new and interesting to read. The prices are great, and the delivery is super fast. Highly recommended!</p>
+                <p>InterLink helped me discover internship opportunities I never knew existed. The application process was seamless and quick!</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -180,7 +196,7 @@
             <div class="swiper-slide box">
                 <img src="image/pic-2.png" alt="">
                 <h3>Sophy Kerubo</h3>
-                <p>Byte Genius offers fantastic deals on a wide variety of books. I especially love their curated selections and recommendations. The website is easy to navigate, and the customer service is excellent.</p>
+                <p>Using InterLink, I was able to connect with multiple companies offering attachment positions. It saved me a lot of time and effort</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -193,7 +209,7 @@
             <div class="swiper-slide box">
                 <img src="image/pic-3.png" alt="">
                 <h3>Michael Williams</h3>
-                <p>I've been a loyal customer of Byte Genius for a while now. They always have the latest releases and great discounts. The quality of the books is top-notch, and the delivery is always on time.</p>
+                <p>As a student, InterLink gave me a platform to not only apply for attachments but also get my resume reviewed and improved.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -205,7 +221,7 @@
             <div class="swiper-slide box">
                 <img src="image/pic-4.png" alt="">
                 <h3>Jean Thomas</h3>
-                <p>Great prices, fast shipping, and an impressive selection of books. Byte Genius has become my go-to online bookstore. I appreciate their customer support, which is always helpful and responsive.</p>
+                <p>The placement drive management tool in InterLink made it easy for us coordinators to organize and manage student applications.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -218,7 +234,7 @@
             <div class="swiper-slide box">
                 <img src="image/pic-5.png" alt="">
                 <h3>Darius paul</h3>
-                <p>Byte Genius never disappoints. The variety of genres and authors they offer is incredible. I love the deals and discounts, making it easy to build my personal library without breaking the bank.</p>
+                <p>As an admin, I can easily post job openings and notices. The dashboard is simple and user-friendly. Great tool for campus job placements!</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -231,7 +247,7 @@
             <div class="swiper-slide box">
                 <img src="image/pic-6.png" alt="">
                 <h3>Emily Williams</h3>
-                <p>I've found some rare and interesting books on Byte Genius that I couldn't find anywhere else. The site is user-friendly, and the shipping is quick. I would definitely recommend it to any book lover.</p>
+                <p>Through InterLink, I was able to upload and manage technical papers for students with ease. The automation features are a big plus!</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -332,6 +348,8 @@
         <a href="#overview">Users</a>
         <a href="#overview">Applications</a>
         <a href="#overview">Placements</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#blogs">Blogs</a>
       </div>
       <div class="box">
         <h3>Developer Contact</h3>
