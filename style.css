@@ -59,21 +59,36 @@ section {
   color: var(--black);
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.9rem 3rem;
-  font-size: 1.7rem;
-  color: #fff;
-  background: var(--green);
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: 500;
-  margin-top: 1rem;
-}
-
-.btn:hover {
-  background: var(--dark-color);
-}
+.auth-buttons1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .btn-outline {
+    padding: 0.6rem 1.5rem;
+    border: 1px solid #0a66c2;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #0a66c2;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: #e6f0fa;
+  }
+  
+  .btn-outline.filled {
+    background-color: #0a66c2;
+    color: white;
+  }
+  
+  .btn-outline.filled:hover {
+    background-color: #004182;
+  }
+  
 
 .header .header-1 {
   background: #fff;
