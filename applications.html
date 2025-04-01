@@ -1,179 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applications</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterLink</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Applications Styles */
+  .applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 9%;
+}
+
+.application-item {
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.application-item h3 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.application-item p {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.application-item .btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+
+    </style>
 </head>
-<body class="bg-gray-100 p-6 font-sans">
-  <h2 class="text-2xl font-bold mb-6 text-center">Applications Dashboard</h2>
-
-  <!-- applications section starts -->
-<section class="featured" id="applications">
-  <h1 class="heading"><span>Latest Applications</span></h1>
-
-  <div class="swiper featured-slider">
-    <div class="swiper-wrapper" id="featured-container">
-      <!-- Applications will be inserted here dynamically -->
+<body>
+    <!-- Header section starts -->
+<header class="header">
+    <div class="header-1">
+      <a href="index.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+      <!-- <form class="search-form">
+        <input type="search" placeholder="Search data..." id="search-box"/>
+        <label for="search-box" class="fas fa-search"></label>
+      </form> -->
+      <div class="auth-buttons1">
+        <a href="register.html" class="btn-outline">Join now</a>
+        <a href="login.html" class="btn-outline filled">Sign in</a>
+      </div>
     </div>
 
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-</section>
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <!-- <a href="users.html">Users</a> -->
+        <a href="applications.html">Applications</a>
+        <a href="placements.html">Placements</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#blogs">Blogs</a>
+      </nav>
+    </div>
+  </header>
+<!-- header section ends -->
+
+  <!-- Bottom nav -->
+  <nav class="bottom-navbar">
+    <a href="#overview" class="fas fa-home"></a>
+    <!-- <a href="users.html" class="fas fa-users"></a> -->
+    <a href="applications.html" class="fas fa-file-alt"></a>
+    <a href="placements.html" class="fas fa-briefcase"></a>
+    <a href="#Reviews" class="fas fa-comments"></a>
+    <a href="#Blogs" class="fas fa-blog"></a>
+  </nav>
+
+
+  <!-- applications section starts -->
+  <section class="applications" id="applications">
+    <h1 class="heading"><span>Applications</span></h1>
+    <div id="applications-container" class="applications-list">
+      <!-- Applications will be inserted here -->
+    </div>
+  </section>
 <!-- applications section ends -->
 
-
-  <script>
-    // Applications section
-
-function fetchApplications() {
-  fetch('http://localhost:8080/applications')
-    .then(response => {
-      if (!response.ok) throw new Error("Failed to fetch applications");
-      return response.json();
-    })
-    .then(data => {
-      const apps = getLatestApplicationsById(data);
-      displayApplications(apps);
-    })
-    .catch(error => console.error('Error fetching applications:', error));
-}
-
-function getLatestApplicationsById(applications) {
-  return applications
-    .sort((a, b) => b.id - a.id)
-    .slice(0, 10);
-}
-
-function displayApplications(applications) {
-  const container = document.getElementById('featured-container'); // reused featured-container ID
-  container.innerHTML = '';
-
-  applications.forEach(app => {
-    const element = document.createElement('a');
-    element.href = "#";
-    element.classList.add('swiper-slide', 'box');
-
-    element.innerHTML = `
-      <div class="icons">
-        <a href="#" class="fas fa-search"></a>
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
+   <!-- Footer -->
+ <section class="footer" id="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="#overview">Overview</a>
+        <!-- <a href="#overview">Users</a> -->
+        <a href="#overview">Applications</a>
+        <a href="#overview">Placements</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#blogs">Blogs</a>
       </div>
-      <div class="content">
-        <h3>${app.placement?.title || "Untitled Position"}</h3>
-        <p><strong>Student:</strong> ${app.student?.name || "N/A"}</p>
-        <p><strong>Company:</strong> ${app.placement?.company?.name || "Unknown"}</p>
-        <div class="price">Status: ${app.status}</div>
-        <div class="stars">
-          ${getStars(app.status === "APPROVED" ? 5 : app.status === "REJECTED" ? 2 : 3)}
-        </div>
-        <a href="#" class="btn">View Application</a>
+      <div class="box">
+        <h3>Developer Contact</h3>
+        <a href="mailto:jaredthomas570j@gmail.com">Gmail</a>
+        <a href="tel:+254715661280">Phone number</a>
+        <a href="https://github.com/jaredthomas01">GitHub</a>
+        <a href="https://twitter.com/jinela001"> Twitter</a>
+        <a href="https://linkedin.com/in/jared-thomas-441834258">LinkedIn</a>
       </div>
-    `;
+    </div>
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
 
-    container.appendChild(element);
-  });
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script src="luxon.js"></script>
 
-  new Swiper(".featured-slider", {
-    spaceBetween: 10,
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 9500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      0: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    },
-  });
-}
-
-function getStars(rating) {
-  let stars = '';
-  for (let i = 0; i < 5; i++) {
-    if (i < rating) {
-      stars += '<i class="fas fa-star"></i>';
-    } else {
-      stars += '<i class="far fa-star"></i>';
-    }
-  }
-  return stars;
-}
-
-document.addEventListener('DOMContentLoaded', fetchApplications);
-
-// Generic UI interactions
-var searchForm = document.querySelector('.search-form');
-
-document.querySelector('#search-btn').onclick = () => {
-  searchForm.classList.toggle('active');
-}
-
-function loader() {
-  document.querySelector('.loader-container').classList.add('active');
-}
-
-function fadeOut() {
-  setTimeout(loader, 4000);
-}
-
-var swiper = new Swiper(".books-slider", {
-  loop: true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1024: { slidesPerView: 3 },
-  },
-});
-
-var swiper = new Swiper(".reviews-slider", {
-  spaceBetween: 10,
-  grabCursor: true,
-  loop: true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1024: { slidesPerView: 3 },
-  },
-});
-
-var swiper = new Swiper(".blogs-slider", {
-  spaceBetween: 10,
-  grabCursor: true,
-  loop: true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1024: { slidesPerView: 3 },
-  },
-});
-
-  </script>
-  
-  
 </body>
 </html>
