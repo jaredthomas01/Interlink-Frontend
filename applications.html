@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Applications</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6 font-sans">
+  <h2 class="text-2xl font-bold mb-4 text-center">Applications Dashboard</h2>
+
+  <div class="flex justify-center mb-6">
+    <select id="statusFilter" class="border p-2 rounded shadow">
+      <option value="ALL">All Statuses</option>
+      <option value="PENDING">Pending</option>
+      <option value="APPROVED">Approved</option>
+      <option value="REJECTED">Rejected</option>
+    </select>
+  </div>
+
+  <div id="applications" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+
+  <script>
+    async function fetchApplications() {
+      try {
+        // const res = await fetch("http://localhost:8080/applications");
+        const data = await res.json();
+        renderApplications(data);
+      } catch (err) {
+        console.error("Error fetching applications:", err);
+        document.getElementById("applications").textContent = "Failed to load applications.";
+      }
+    }
+
+    function renderApplications(data) {
+      const container = document.getElementById("applications");
+      const filter = document.getElementById("statusFilter").value;
+      container.innerHTML = "";
+
+      const filtered = filter === "ALL" ? data : data.filter(app => app.status === filter);
+
+      filtered.forEach(app => {
+        const appCard = document.createElement("div");
+        appCard.className = "bg-white p-4 rounded shadow hover:shadow-lg transition";
+
+        appCard.innerHTML = `
+          <h3 class="text-xl font-semibold text-blue-600">${app.placement.title}</h3>
+          <p><strong>Student:</strong> ${app.student.name}</p>
+          <p><strong>Reg No:</strong> ${app.student.registrationNumber}</p>
+          <p><strong>Company:</strong> ${app.placement.company.name}</p>
+          <p><strong>Status:</strong> <span class="font-bold text-${statusColor(app.status)}-600">${app.status}</span></p>
+        `;
+
+        container.appendChild(appCard);
+      });
+    }
+
+    function statusColor(status) {
+      switch (status) {
+        case "APPROVED": return "green";
+        case "REJECTED": return "red";
+        default: return "yellow";
+      }
+    }
+
+    document.getElementById("statusFilter").addEventListener("change", fetchApplications);
+
+    fetchApplications();
+  </script>
+</body>
+</html>
