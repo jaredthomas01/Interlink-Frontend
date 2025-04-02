@@ -1,5 +1,5 @@
 /* Signup Form CSS */
-
+  
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -9,6 +9,27 @@ body {
     background-color: #f1f1f1;
     margin: 0;
 }
+
+.header .header-1 {
+    background: #f1f1f1;
+    padding: 1.5rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .header .header-1 .logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: var(--black);
+  }
+  
+  .header .header-1 .logo .fas {
+    color: var(--green);
+    --green: #27ae60;
+    --dark-color: #219150;
+  }
 
 .signup-form-container {
     background: #fff;
