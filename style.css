@@ -234,7 +234,7 @@ section {
 }
 
 .home .row .books-slider a img {
-    width: 100%;
+    width: 90%;
     max-width: 250px;
     height: auto;
     object-fit: contain;
