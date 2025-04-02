@@ -50,6 +50,7 @@ body {
     border-radius: 3px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 1.5rem;
 }
 
 .login-form-container .btn:hover {
