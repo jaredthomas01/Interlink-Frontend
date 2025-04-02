@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(error => console.error('Error fetching placements:', error));
   }
-
+// function to display placements
   function displayPlacements(placements) {
     const container = document.getElementById('featured-container');
     container.innerHTML = '';
@@ -112,7 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <p><strong>Company:</strong> ${placement.company?.name || "Unknown"}</p>
         <p><strong>Description:</strong> ${placement.description || "No description available."}</p>
         <p><strong>Requirements:</strong> ${placement.requirements || "Not specified"}</p>
-        <a href="#" class="btn">View Details</a>
+        <a href="view-placement.html?id=${placement.id}" class="btn btn-details">View Details</a>
+        <a href="apply.html?placementId=${placement.id}" class="btn btn-apply">Apply Now</a>
       `;
 
       container.appendChild(item);
@@ -121,8 +122,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener('DOMContentLoaded', fetchPlacements);
 
-
- // Applications section
+  function displayPlacements(placements) {
+    const container = document.getElementById('featured-container');
+    container.innerHTML = '';
+  
+    placements.forEach((placement, index) => {
+      const item = document.createElement('div');
+      item.className = 'placement-item';
+  
+      item.innerHTML = `
+        <h3>${placement.title || "Untitled Placement"}</h3>
+        <p><strong>Company:</strong> ${placement.company?.name || "Unknown"}</p>
+        <p><strong>Description:</strong> ${placement.description || "No description available."}</p>
+        <p><strong>Requirements:</strong> ${placement.requirements || "Not specified"}</p>
+  
+  
+        <div id="details-${index}" class="details-collapse" style="display: none; margin-top: 1rem;">
+          <p><strong>Industry:</strong> ${placement.company?.industry || "N/A"}</p>
+          <p><strong>Location:</strong> ${placement.company?.location || "N/A"}</p>
+        </div>
+        <button class="btn details-toggle" data-target="details-${index}">View Details</button>
+        <a href="apply.html?placementId=${placement.id}" class="btn apply-btn">Apply Now</a>
+      `;
+  
+      container.appendChild(item);
+    });
+  
+    // Add event listeners for toggling details
+    document.querySelectorAll('.details-toggle').forEach(button => {
+      button.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const content = document.getElementById(targetId);
+        if (content.style.display === 'none') {
+          content.style.display = 'block';
+          this.textContent = 'Hide Details';
+        } else {
+          content.style.display = 'none';
+          this.textContent = 'View Details';
+        }
+      });
+    });
+  }
 
  function fetchApplications() {
     fetch('http://localhost:8080/applications')
