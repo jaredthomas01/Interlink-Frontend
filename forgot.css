@@ -70,12 +70,12 @@ section {
   }
   
   .btn-outline.filled {
-    background-color: #0a66c2;
+    background-color: #27ae60;
     color: #f1f1f1;
   }
   
   .btn-outline.filled:hover {
-    background-color: #004182;
+    background-color: #27ae60;
   }
 
 
@@ -105,7 +105,6 @@ section {
     align-items: center;
     min-height: 70vh;
     margin-top: 3rem;
-    background-color: ;
   }
   
   .forgot-form-box {
@@ -146,7 +145,7 @@ section {
   .forgot-form-box .btn {
     width: 100%;
     padding: 1rem;
-    background-color: #0a66c2;
+    background-color: #27ae60;
     color: #fff;
     font-size: 1.5rem;
     border: none;
@@ -157,7 +156,7 @@ section {
   }
   
   .forgot-form-box .btn:hover {
-    background-color: #004182;
+    background-color: green;
   }
   
   .forgot-form-box .back-btn {
@@ -180,7 +179,6 @@ section {
     padding-top: 2.5rem;
     font-size: 2rem;
     color:var(--light-color);
-    background-color: ;
     text-align: center;
 }
 
