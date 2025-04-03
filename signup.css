@@ -157,3 +157,6 @@ p {
   .agreement-text a {
     color: #27ae60;
   }
+  .agreement-text{
+    margin-top: 2rem;
+  }

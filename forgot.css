@@ -1,0 +1,189 @@
+/* InterLink System CSS using Byte Genius Template */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root {
+  --green: #27ae60;
+  --dark-color: #219150;
+  --black: #444;
+  --light-color: #666;
+  background-color: #f1f1f1;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --border-hover: 0.1rem solid var(--black);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+    transition:width none;
+    /* background-color: #f1f1f1; */
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width:1rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:var(--black);
+}
+
+section {
+  padding: rem 5%;
+}
+
+
+.auth-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .btn-outline {
+    padding: 0.6rem 1.5rem;
+    border: 1px solid #0a66c2;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #0a66c2;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: #e6f0fa;
+  }
+  
+  .btn-outline.filled {
+    background-color: #0a66c2;
+    color: #f1f1f1;
+  }
+  
+  .btn-outline.filled:hover {
+    background-color: #004182;
+  }
+
+
+.header .header-1 {
+  background: #fff;
+  padding: 1.5rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+}
+
+.header .header-1 .logo {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+.header .header-1 .logo i {
+  color: var(--green);
+}
+  
+ /* Forgot Password Form */
+.forgot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    margin-top: 3rem;
+    background-color: ;
+  }
+  
+  .forgot-form-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 3rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .forgot-form-box h3 {
+    font-size: 2.4rem;
+    background-color: #fff;
+    margin-bottom: 2rem;
+    color: var(--black);
+  }
+  
+  .forgot-form-box input[type="text"],
+  .forgot-form-box input[type="email"] {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.5rem;
+    border: var(--border);
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .forgot-form-box p {
+    font-size: 1.4rem;
+    color: var(--light-color);
+    background-color: #fff;
+    margin-bottom: 2rem;
+  }
+  
+  .forgot-form-box .btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #0a66c2;
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .forgot-form-box .btn:hover {
+    background-color: #004182;
+  }
+  
+  .forgot-form-box .back-btn {
+    background: none;
+    border: none;
+    color: var(--light-color);
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+  
+  .forgot-form-box .back-btn:hover {
+    text-decoration: underline;
+  }
+
+.footer .credit{
+    border-top: var(--border);
+    margin-top: 2rem;
+    padding:0 1rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color:var(--light-color);
+    background-color: ;
+    text-align: center;
+}
+
+.footer .credit span{
+    color:var(--green);
+}
