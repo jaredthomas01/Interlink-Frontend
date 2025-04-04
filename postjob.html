@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterLink</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+      background: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 5rem auto;
+      background: #fff;
+      padding: 3rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #27ae60;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1.4rem;
+    }
+
+    .form-group textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: #27ae60;
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      font-size: 1.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #219150;
+    }
+  </style>
+</head>
+<body>
+    <!-- Header section starts -->
+<header class="header">
+    <div class="header-1">
+      <a href="student-dashboard.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+    </div>
+
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="postjob.html">Post Job</a>
+        <a href="#myjobs.html">My Jobs</a>
+        <a href="applications.html">Applications</a>
+        <a href="shortlisted.html">Shortlisted</a>
+        <a href="Alljobs.html">All Jobs</a>
+        <a href="#companyprofile.html">Profile</a>
+      </nav>
+    </div>
+  </header>
+<!-- header section ends -->
+
+
+  <!-- Job applications section starts -->
+  <div class="container">
+    <h2>Post a Job Opening</h2>
+    <form id="postJobForm">
+        <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" required />
+          </div>
+
+      <div class="form-group">
+        <label for="title">Job Title</label>
+        <input type="text" id="title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Job Description</label>
+        <textarea id="description" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="requirements">Requirements</label>
+        <textarea id="requirements" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="industry">Industry</label>
+        <input type="text" id="industry" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" required />
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Job</button>
+    </form>
+  </div>
+
+<!-- Job application section ends -->
+
+   <!-- Footer -->
+ <section class="footer" id="footer">
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="postjob.js"></script>
+  <script src="luxon.js"></script>
+
+</body>
+</html>
