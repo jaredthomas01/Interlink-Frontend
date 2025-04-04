@@ -173,6 +173,30 @@
   
   // Optional DOM load trigger if it's on a separate page
   document.addEventListener('DOMContentLoaded', fetchApplications);
+
+
+  // fuction apply to one job once
+  function applyToJob(studentId, placementId) {
+    fetch(`http://localhost:8080/applications/check?studentId=${studentId}&placementId=${placementId}`)
+      .then(res => {
+        if (res.status === 200) {
+          return res.json();
+        } else if (res.status === 409) {
+          throw new Error("You've already applied to this job.");
+        }
+      })
+      .then(data => {
+        // Proceed to apply
+        return fetch("http://localhost:8080/applications", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ studentId, placementId })
+        });
+      })
+      .then(() => alert("Application submitted successfully"))
+      .catch(err => alert(err.message));
+  }
+  
   
   
   

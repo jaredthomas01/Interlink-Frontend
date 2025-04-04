@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterLink</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f1f1f1;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 5rem auto;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      display: block;
+      color: #444;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.9rem;
+      margin-bottom: 1.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    textarea {
+      resize: vertical;
+      font-family: 12px;
+      min-height: 100px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #219150;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+    <!-- Header section starts -->
+<header class="header">
+    <div class="header-1">
+      <a href="student-dashboard.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+    </div>
+
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="jobs.html">All Jobs</a>
+        <a href="myapplications.html">My Applications</a>
+        <a href="myshortlisted.html">Shortlisted</a>
+        <a href="#studentprofile.html">Profile</a>
+      </nav>
+    </div>
+  </header>
+<!-- header section ends -->
+
+
+  <!-- Job applications section starts -->
+  <div class="container">
+    <h2>Apply for this Position</h2>
+    <form id="applicationForm" enctype="multipart/form-data">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" placeholder="Enter your fullName" required>
+
+      <label for="regNumber">Registration Number</label>
+      <input type="text" id="regNumber" placeholder="Enter your register number" required>
+
+      <label for="course">Course of Study</label>
+      <input type="text" id="course" placeholder="Enter your Course of study" required>
+
+      <label for="university">University</label>
+      <input type="text" id="university" placeholder="Enter your University" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required pattern="[0-9]{10,15}" placeholder="e.g. 0712345678">
+
+      <label for="coverLetter">Cover Letter</label>
+      <textarea id="coverLetter" required placeholder="Write your cover letter here on what motivation you to aplly for this position..."></textarea>
+
+      <label for="resume">Upload Resume (PDF)</label>
+      <input type="file" id="resume" accept=".pdf" required>
+
+      <button type="submit" class="btn">Submit Application</button>
+    </form>
+    <p class="note">Make sure all details are accurate before submitting.</p>
+  </div>
+<!-- Job application section ends -->
+
+   <!-- Footer -->
+ <section class="footer" id="footer">
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="apply.js"></script>
+  <script src="luxon.js"></script>
+
+</body>
+</html>
