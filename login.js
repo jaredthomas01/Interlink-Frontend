@@ -17,35 +17,45 @@ document.addEventListener("DOMContentLoaded", function () {
           return res.json();
         })
         .then(user => {
-          alert("Login successful");
-          window.location.href = "dashboard.html"; // redirect on success
+          const role = user.role?.toLowerCase();
+          if (role === "student") {
+            window.location.href = "student-dashboard.html";
+          } else if (role === "coordinator") {
+            window.location.href = "coordinator-dashboard.html";
+          } else if (role === "company_representative") {
+            window.location.href = "company-dashboard.html";
+          } else {
+            alert("Unknown role: " + role);
+          }
         })
-        .catch(err => alert(err.message));
+        .catch(err => alert("Login failed: " + err.message));
+    });
+  
+    // Password toggle logic
+    const passwordFields = document.querySelectorAll("input[type='password']");
+    passwordFields.forEach(field => {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+  
+      const icon = document.createElement("i");
+      icon.className = "fas fa-eye";
+      icon.style.position = "absolute";
+      icon.style.right = "10px";
+      icon.style.top = "50%";
+      icon.style.transform = "translateY(-50%)";
+      icon.style.cursor = "pointer";
+      icon.style.color = "#888";
+  
+      const parent = field.parentNode;
+      parent.replaceChild(wrapper, field);
+      wrapper.appendChild(field);
+      wrapper.appendChild(icon);
+  
+      icon.addEventListener("click", () => {
+        const isHidden = field.type === "password";
+        field.type = isHidden ? "text" : "password";
+        icon.className = isHidden ? "fas fa-eye-slash" : "fas fa-eye";
+      });
     });
   });
-  // Password visibility toggle (clean eye icon using FontAwesome)
-  const passwordFields = document.querySelectorAll("input[type='password']");
-  passwordFields.forEach(field => {
-    const wrapper = document.createElement("div");
-    wrapper.style.position = "relative";
   
-    const icon = document.createElement("i");
-    icon.className = "fas fa-eye";
-    icon.style.position = "absolute";
-    icon.style.right = "10px";
-    icon.style.top = "50%";
-    icon.style.transform = "translateY(-50%)";
-    icon.style.cursor = "pointer";
-    icon.style.color = "#888";
-  
-    const parent = field.parentNode;
-    parent.replaceChild(wrapper, field);
-    wrapper.appendChild(field);
-    wrapper.appendChild(icon);
-  
-    icon.addEventListener("click", () => {
-      const isHidden = field.type === "password";
-      field.type = isHidden ? "text" : "password";
-      icon.className = isHidden ? "fas fa-eye-slash" : "fas fa-eye";
-    });
-  });

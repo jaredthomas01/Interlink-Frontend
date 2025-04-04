@@ -13,15 +13,23 @@ document.querySelector("form").addEventListener("submit", function (e) {
   
     fetch("http://localhost:8080/users", {
       method: "POST",
-      headers: { "Content-Type": "You have registered succesfully" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, role }),
     })
-      .then(res => res.text())
-      .then(msg => {
-        alert(msg);
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Signup failed");
+        }
+        return res.json(); // if your backend returns user JSON
+      })
+      .then(() => {
+        // ✅ User-friendly message
+        alert("✅ You have signed up successfully!");
         window.location.href = "login.html";
       })
-      .catch(err => alert("Signup failed"));
+      .catch(err => {
+        alert("❌ Signup failed: " + err.message);
+      });
   });
   
   
