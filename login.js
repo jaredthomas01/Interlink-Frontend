@@ -18,13 +18,23 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(user => {
         const role = user.role?.toLowerCase();
-        const studentId = user.id;
-
-        // Save to localStorage for use in apply.js
-        localStorage.setItem("studentId", studentId);
+        const userId = user.id;
+      
+        if (!userId) {
+          alert("Login succeeded but userId is missing!");
+          return;
+        }
+      
+        // ✅ Store ONLY non-sensitive info
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("userEmail", user.email);
         localStorage.setItem("userRole", role);
-
+      
+        console.log("✅ Stored userId in localStorage:", userId); // 👈 Add this
+      
+        // ✅ Redirect based on role
         if (role === "student") {
+          localStorage.setItem("studentId", userId); // also set studentId for applications
           window.location.href = "student-dashboard.html";
         } else if (role === "coordinator") {
           window.location.href = "coordinator-dashboard.html";
@@ -37,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(err => alert("Login failed: " + err.message));
   });
 
-  // Password visibility toggle
+  // 👁️ Password visibility toggle
   const passwordFields = document.querySelectorAll("input[type='password']");
   passwordFields.forEach(field => {
     const wrapper = document.createElement("div");
