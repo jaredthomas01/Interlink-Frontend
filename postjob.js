@@ -42,10 +42,10 @@ document.getElementById("postJobForm").addEventListener("submit", async function
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title,
-          description,
-          requirements,
-          company: { id: companyId }
+          title: title,
+          description: description,
+          requirements: requirements,
+          company: { id: parseInt(companyId) }  // ✅ Correct casting here
         })
       });
   
