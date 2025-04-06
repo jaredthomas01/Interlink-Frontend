@@ -12,44 +12,72 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Applications Styles */
-  .applications-list {
+    /* Profile Section */
+.profile-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 9%;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  max-width: 400vh;
+  max-height: 900vh;
 }
 
-.application-item {
-  background: #fff;
-  padding: 1.8rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.application-item h3 {
-  font-size: 1.8rem;
-  color: #222;
+.profile-section h2 {
+  font-size: 2.4rem;
+  color: var(--black);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
-.application-item p {
+.profile-section p {
+  font-size: 16px;
+  color: var(--light-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.profile-card {
+  background: #fff;
+  padding: 10rem 4rem;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  margin-top: 8rem;
+}
+
+.profile-card img.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--green);
+}
+
+.profile-card p {
   font-size: 1.4rem;
-  margin: 0.5rem 0;
-  color: #555;
+  margin: 0.8rem 0;
+  color: var(--black);
 }
 
-.application-item .btn {
-  margin-top: 1rem;
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background-color: #27ae60;
+.profile-card button {
+  background: var(--green);
   color: white;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
   border-radius: 4px;
-  text-decoration: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
+.profile-card button:hover {
+  background: var(--dark-color);
+}
 
     </style>
 </head>
@@ -76,12 +104,20 @@
 
 
   <!-- applications section starts -->
-  <section class="applications" id="applications">
-    <h1 class="heading"><span>My Shortlisted Jobs</span></h1>
-    <div id="applications-container" class="applications-list">
-      <!-- Applications will be inserted here -->
-    </div>
-  </section>
+ <section class="profile-section">
+  <h2>Hello <span id="username">User</span></h2>
+  <p>Welcome to InterLink. You can update your profile or change your password below.</p>
+
+  <div class="profile-card">
+    <img src="default-avatar.png" alt="Profile Photo" class="profile-pic" id="profilePic">
+    <p><strong>Reg No:</strong> <span id="regNo"></span></p>
+    <p><strong>Full Name:</strong> <span id="fullName"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+
+    <button onclick="editProfile()">Edit Profile</button>
+    <button onclick="changePassword()">Change Password</button>
+  </div>
+</section>
 <!-- applications section ends -->
 
    <!-- Footer -->
