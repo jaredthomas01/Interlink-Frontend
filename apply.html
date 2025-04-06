@@ -104,11 +104,14 @@
   <div class="container">
     <h2>Apply for this Position</h2>
     <form id="applicationForm" enctype="multipart/form-data">
+         <!-- full name, and Registration Number should be stored in the studententity -->
       <label for="fullName">Full Name</label>
-      <input type="text" id="fullName" placeholder="Enter your fullName" required>
+      <input type="text" id="name" placeholder="Enter your fullName" required>
 
       <label for="regNumber">Registration Number</label>
-      <input type="text" id="regNumber" placeholder="Enter your register number" required>
+      <input type="text" id="registrationNumber" placeholder="Enter your register number" required>
+
+      <!-- Course of Study, University, Phone Number, Cover Letter, and Upload Resume (PDF) should be stored in the application entity -->
 
       <label for="course">Course of Study</label>
       <input type="text" id="course" placeholder="Enter your Course of study" required>
@@ -122,7 +125,7 @@
       <label for="coverLetter">Cover Letter</label>
       <textarea id="coverLetter" required placeholder="Write your cover letter here on what motivation you to aplly for this position..."></textarea>
 
-      <label for="resume">Upload Resume (PDF)</label>
+      <label for="resume">Upload Resume</label>
       <input type="file" id="resume" accept=".pdf" required>
 
       <button type="submit" class="btn">Submit Application</button>

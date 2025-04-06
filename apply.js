@@ -77,67 +77,78 @@
     });
   }
 
-document.addEventListener("DOMContentLoaded", () => {
+  function redirectToApply(placementId) {
+    localStorage.setItem("placementId", placementId);
+    window.location.href = "apply.html";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
     const applyForm = document.getElementById("applicationForm");
-    const placementId = new URLSearchParams(window.location.search).get("placementId");
-    const studentId = localStorage.getItem("studentId");
-  
-    if (!applyForm) return;
   
     applyForm.addEventListener("submit", async (e) => {
       e.preventDefault();
   
-      if (!studentId || !placementId) {
-        alert("Missing student or placement information.");
-        return;
-      }
-  
-      const fullName = document.getElementById("fullName").value;
-      const regNumber = document.getElementById("regNumber").value;
+      const fullName = document.getElementById("name").value;
+      const regNo = document.getElementById("registrationNumber").value;
       const course = document.getElementById("course").value;
       const university = document.getElementById("university").value;
       const phone = document.getElementById("phone").value;
       const coverLetter = document.getElementById("coverLetter").value;
       const resumeFile = document.getElementById("resume").files[0];
   
-      // Check if already applied
-      try {
-        const checkRes = await fetch(`http://localhost:8080/applications/check?studentId=${studentId}&placementId=${placementId}`);
-        const alreadyApplied = await checkRes.json();
-        if (alreadyApplied) {
-          alert("You have already applied for this placement.");
-          return;
-        }
-      } catch (err) {
-        alert("Error checking application status: " + err.message);
+      // Get user and placement info
+      const userId = localStorage.getItem("userId");
+      const placementId = localStorage.getItem("placementId") || new URLSearchParams(window.location.search).get("placementId");
+  
+      if (!userId || !placementId) {
+        alert("Missing user or placement info. Please login or select a placement again.");
         return;
       }
   
-      // Prepare and send application
-      const formData = new FormData();
-      formData.append("studentId", studentId);
-      formData.append("placementId", placementId);
-      formData.append("fullName", fullName);
-      formData.append("regNo", regNumber);
-      formData.append("course", course);
-      formData.append("university", university);
-      formData.append("phone", phone);
-      formData.append("coverLetter", coverLetter);
-      formData.append("resume", resumeFile);
-  
       try {
-        const res = await fetch("http://localhost:8080/applications", {
+        // 1. Create student
+        const studentRes = await fetch("http://localhost:8080/students", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: fullName,
+            registrationNumber: regNo,
+            user: { id: parseInt(userId) }
+          })
+        });
+  
+        if (!studentRes.ok) throw new Error("Failed to create student");
+  
+        const studentData = await studentRes.json();
+        const studentId = studentData.id;
+  
+        // 2. Submit application
+        const formData = new FormData();
+        formData.append("studentId", studentId);
+        formData.append("placementId", placementId);
+        formData.append("course", course);
+        formData.append("university", university);
+        formData.append("phone", phone);
+        formData.append("coverLetter", coverLetter);
+        formData.append("resume", resumeFile);
+  
+        const appRes = await fetch("http://localhost:8080/applications", {
           method: "POST",
           body: formData,
         });
   
-        if (!res.ok) throw new Error("Application failed");
+        if (!appRes.ok) throw new Error("Failed to submit application");
   
         alert("Application submitted successfully!");
-        window.location.href = "myapplications.html";
+        window.location.href = "student-dashboard.html";
+  
       } catch (err) {
+        console.error(err);
         alert("Error: " + err.message);
       }
     });
   });
+  
   
