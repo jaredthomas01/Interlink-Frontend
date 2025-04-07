@@ -28,7 +28,7 @@ document.querySelector("form").addEventListener("submit", function (e) {
         window.location.href = "login.html";
       })
       .catch(err => {
-        alert("❌ Signup failed: " + err.message);
+        alert(" Signup failed: " + err.message);
       });
   });
   
