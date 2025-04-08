@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       const item = document.createElement("div");
       item.className = "application-item";
 
-      const studentName = app.student?.name || "Unnamed Student";
-      const regNumber = app.student?.registrationNumber || "N/A";
+      const studentName = app.studentName || "Unnamed Student";
+const regNumber = app.registrationNumber || "N/A";
       const course = app.course || "N/A";
       const university = app.university || "N/A";
       const phone = app.phone || "N/A";

@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Location:</strong> ${placement.company?.location || "N/A"}</p>
         </div>
         <button class="btn details-toggle" data-target="details-${index}">View Details</button>
-        <a href="login.html?placementId=${placement.id}" class="btn apply-btn">Apply Now</a>
+        <a href="apply.html?placementId=${placement.id}" class="btn apply-btn">Apply Now</a>
       `;
   
       container.appendChild(item);
@@ -243,15 +243,21 @@ document.addEventListener("DOMContentLoaded", () => {
     applications.forEach(app => {
       const item = document.createElement('div');
       item.className = 'application-item'; // unique class for jobs
+
+      const resumeLink = app.resumeDownloadUrl || `http://localhost:8080/applications/${app.id}/resume`;
   
       item.innerHTML = `
-        <h3>${app.placement?.title || "Untitled Application"}</h3>
-        <p><strong>Student:</strong> ${app.student?.name || "N/A"}</p>
-        <p><strong>Reg No:</strong> ${app.student?.registrationNumber || "N/A"}</p>
-        <p><strong>Company:</strong> ${app.placement?.company?.name || "Unknown"}</p>
-        <p><strong>Status:</strong> ${app.status}</p>
-        <a href="#" class="btn">View Application</a>
-      `;
+      <h3>${app.placement?.title || "Untitled Application"}</h3>
+      <p><strong>Company:</strong> ${app.placement?.company?.name || "Unknown"}</p>
+      <p><strong>Student:</strong> ${app.student?.name || app.studentName || "N/A"}</p>
+      <p><strong>Reg No:</strong> ${app.student?.registrationNumber || app.registrationNumber || "N/A"}</p>
+      <p><strong>Course:</strong> ${app.course || "N/A"}</p>
+      <p><strong>University:</strong> ${app.university || "N/A"}</p>
+      <p><strong>Phone:</strong> ${app.phone || "N/A"}</p>
+      <p><strong>Cover Letter:</strong> ${app.coverLetter || "N/A"}</p>
+      <p><strong>Status:</strong> ${app.status}</p>
+      <a class="btn" href="${resumeLink}" target="_blank">Download Resume</a>
+    `;
   
       container.appendChild(item);
     });
