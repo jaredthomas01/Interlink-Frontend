@@ -290,11 +290,11 @@ section {
     width: 20px;
 }
 
-.login-btn.email {
-    background-color: #4285f4;
-    color: white;
-    border: none;
-    font-weight: 500;
+.login-btn.google {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  font-weight: 500;
 }
 
 .login-btn.google img,
@@ -302,7 +302,13 @@ section {
     background: white;
     border-radius: 50%;
     padding: 0.2rem;
-    background-color: #4285f4;
+
+}
+.login-btn.email {
+  background-color: var(--green);
+  color: white;
+  border: none;
+  font-weight: 500;
 }
 
 /* Fix overlapping with media queries */

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create User - InterLink</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .user-form {
+      max-width: 500px;
+      margin: 5rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+    .user-form h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+    .user-form input, .user-form select, .user-form button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      font-size: 16px;
+    }
+    .user-form button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-1">
+    <a href="Admin-dashboard.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+    <div class="auth-buttons1">
+      <a href="login.html" class="btn-outline filled">Sign Out</a>
+    </div>
+  </div>
+
+  <div class="header-2">
+    <nav class="navbar">
+      <a href="postjob1.html">Post Jobs</a>
+      <a href="viewjobs1.html">All Jobs</a>
+      <a href="jobapplications1.html">Applications</a>
+      <a href="shortlistedstudents1.html">Shortlisted</a>
+      <a href="Createuser.html">Create User</a>
+      <a href="users.html">Users</a>
+    </nav>
+  </div>
+</header>
+
+<section class="user-form">
+  <h3>Create New User</h3>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <select id="role">
+    <option value="STUDENT">Student</option>
+    <option value="COORDINATOR">Coordinator</option>
+    <option value="COMPANY_REPRESENTATIVE">Company Representative</option>
+  </select>
+  <button onclick="createUser()">Create User</button>
+</section>
+
+<section class="footer" id="footer">
+  <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+</section>
+
+<script>
+  function createUser() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value;
+
+    fetch("http://localhost:8080/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password, role })
+    })
+    .then(res => {
+      if (!res.ok) throw new Error("User creation failed");
+      return res.json();
+    })
+    .then(() => {
+      alert("✅ User created successfully");
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("role").value = "STUDENT";
+    })
+    .catch(err => alert("Error: " + err.message));
+  }
+</script>
+
+</body>
+</html>

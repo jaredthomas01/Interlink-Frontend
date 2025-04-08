@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterLink</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Applications Styles */
+  .applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 9%;
+}
+
+.application-item {
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.application-item h3 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.application-item p {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.application-item .btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header section starts -->
+<header class="header">
+    <div class="header-1">
+      <a href="Admin-dashboard.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+      <div class="auth-buttons1">
+        <a href="login.html" class="btn-outline filled">Sign Out</a>
+      </div>
+    </div>
+
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="postjob.html">post Jobs</a>
+        <a href="viewjobs1.html">All Jobs</a>
+        <a href="jobapplications1.html">Applications</a>
+        <a href="shortlistedstudents1.html">Shortlisted</a>
+        <a href="Createuser.html">Create User</a>
+        <a href="users.html">Users</a>
+        
+        <!-- <a href="#studentprofile.html">Profile</a> -->
+      </nav>
+    </div>
+  </header>
+<!-- header section ends -->
+
+
+  <!-- applications section starts -->
+  <section class="applications" id="applications">
+    <h1 class="heading"><span>All Shortlisted Students</span></h1>
+    <div id="applications-container" class="applications-list">
+      <!-- Applications will be inserted here -->
+    </div>
+  </section>
+<!-- applications section ends -->
+
+   <!-- Footer -->
+ <section class="footer" id="footer">
+    </div>
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="approved.js"></script>
+  <script src="luxon.js"></script>
+
+</body>
+</html>

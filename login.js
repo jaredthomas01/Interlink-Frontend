@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.href = "coordinator-dashboard.html";
         } else if (role === "company_representative") {
           window.location.href = "company-dashboard.html";
-        } else {
+        } else if (role === "admin"){
+          window.location.href = "Admin-dashboard.html";
+        }else {
           alert("Unknown role: " + role);
         }
       })

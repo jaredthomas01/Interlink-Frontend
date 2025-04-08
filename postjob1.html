@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterLink</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Placement styling based on featured section look */
+
+        .featured {
+            padding: 5rem 9%;
+            background: #f9f9f9;
+        }
+
+        .featured .heading {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .featured .heading span {
+            font-size: 3rem;
+            padding: 0.5rem 2rem;
+            background: #fff;
+            border: 1px solid #ccc;
+            color: #222;
+        }
+
+        .placement-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .placement-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .placement-item h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .placement-item p {
+            margin: 0.3rem 0;
+            color: #555;
+            font-size: 1.4rem;
+        }
+
+        .placement-item .btn {
+            margin-top: 1rem;
+            background: #27ae60;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .details-collapse {
+            background: #fff;
+            border-radius: 5px;
+            font-size: 1.4rem;
+            color: #333;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    
+<!-- Header section starts -->
+<header class="header">
+    <div class="header-1">
+      <a href="Admin-dashboard.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+      
+      <div class="auth-buttons1">
+        <a href="login.html" class="btn-outline filled">Sign Out</a>
+      </div>
+    </div>
+
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="postjob1.html">post Jobs</a>
+        <a href="viewjobs1.html">All Jobs</a>
+        <a href="jobapplications1.html">Applications</a>
+        <a href="shortlistedstudents1.html">Shortlisted</a>
+        <a href="Createuser.html">Create User</a>
+        <a href="users.html">Users</a>
+
+        <!-- <a href="#studentprofile.html">Profile</a> -->
+      </nav>
+    </div>
+  </header>
+<!-- header section ends -->
+
+<!-- Placement section starts-->
+<section class="featured" id="placements">
+    <h1 class="heading"><span>All jobs</span></h1>
+    <div class="placement-list" id="featured-container">
+      <!-- Placements will be inserted dynamically here -->
+    </div>
+  </section>
+  <!-- Placement section ends-->
+
+ <!-- Footer -->
+ <section class="footer" id="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="viewjobs.html">All Jobs</a>
+        <a href="jobapplications.html">Applications</a>
+        <a href="shortlistedstudents.html">Shortlisted</a>
+      </div>
+      <div class="box">
+        <h3>Developer Contact</h3>
+        <a href="mailto:jaredthomas570j@gmail.com">Gmail</a>
+        <a href="tel:+254715661280">Phone number</a>
+        <a href="https://github.com/jaredthomas01">GitHub</a>
+        <a href="https://twitter.com/jinela001"> Twitter</a>
+        <a href="https://linkedin.com/in/jared-thomas-441834258">LinkedIn</a>
+      </div>
+    </div>
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="coordinator.js"></script>
+  <script src="luxon.js"></script>
+  
+  
+
+</body>
+</html>

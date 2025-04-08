@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterLink</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Placement styling based on featured section look */
+
+        .users-section {
+            padding: 5rem 9%;
+            background: #f9f9f9;
+        }
+
+        .users-section .heading {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .users-section .heading span {
+            font-size: 3rem;
+            padding: 0.5rem 2rem;
+            background: #fff;
+            border: 1px solid #ccc;
+            color: #222;
+        }
+
+        .user-list {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .user-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .user-item h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .user-item p {
+            margin: 0.3rem 0;
+            color: #555;
+            font-size: 1.4rem;
+        }
+
+        .btn-group {
+            margin-top: 1rem;
+        }
+
+        .btn-group button {
+            margin-right: 10px;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+            background-color: green;
+        }
+
+        .user-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .user-form input, .user-form select {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    
+<!-- Header section starts -->
+<header class="header">
+    <div class="header-1">
+      <a href="Admin-dashboard.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+      <div class="auth-buttons1">
+        <a href="login.html" class="btn-outline filled">Sign Out</a>
+      </div>
+    </div>
+
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="postjob1.html">post Jobs</a>
+        <a href="viewjobs1.html">All Jobs</a>
+        <a href="jobapplications1.html">Applications</a>
+        <a href="shortlistedstudents1.html">Shortlisted</a>
+        <a href="Createuser.html">Create User</a>
+        <a href="users.html">Users</a>
+
+        <!-- <a href="#studentprofile.html">Profile</a> -->
+      </nav>
+    </div>
+  </header>
+<!-- header section ends -->
+
+
+<!-- Users section starts-->
+<section class="users-section" id="users">
+    <h1 class="heading"><span>All Registered Users</span></h1>
+    <div class="user-list" id="users-container">
+        <!-- Users will be rendered here -->
+    </div>
+</section>
+  <!-- Users section ends-->
+
+ <!-- Footer -->
+ <section class="footer" id="footer">
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="users.js"></script>
+  
+  
+
+</body>
+</html>
