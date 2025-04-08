@@ -12,7 +12,7 @@ function loadUsers() {
             <p><strong>Role:</strong> ${user.role}</p>
             <p><strong>User ID:</strong> ${user.id}</p>
             <div class="btn-group">
-              <a href="edituser.html?id=${user.id}&email=${encodeURIComponent(user.email)}&role=${user.role}">
+              <a href="edituser.html?id=${user.id}&email=${encodeURIComponent(user.email)}&role=${user.role} style ="font-size: 14px"">
   <button>Edit</button>
 </a>
               <button onclick="deleteUser(${user.id})">Delete</button>
