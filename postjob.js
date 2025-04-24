@@ -1,7 +1,7 @@
 document.getElementById("postJobForm").addEventListener("submit", async function (e) {
     e.preventDefault();
   
-    // 👇 Get form fields
+    // Get form fields
     const companyName = document.getElementById("name").value;
     const industry = document.getElementById("industry").value;
     const location = document.getElementById("location").value;
@@ -10,7 +10,7 @@ document.getElementById("postJobForm").addEventListener("submit", async function
     const description = document.getElementById("description").value;
     const requirements = document.getElementById("requirements").value;
   
-    // 👇 Get logged in user
+    // Get logged in user
     const userId = localStorage.getItem("userId");
     if (!userId) {
       alert("Missing user info. Please log in again.");
@@ -18,26 +18,33 @@ document.getElementById("postJobForm").addEventListener("submit", async function
     }
   
     try {
-      // STEP 1 — Create company
-      const companyRes = await fetch("http://localhost:8080/companies", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: companyName,
-          industry: industry,
-          location: location,
-          user: { id: parseInt(userId) }
-        })
-      });
+      // STEP 1 — Check if company already exists for user
+      const companyCheck = await fetch(`http://localhost:8080/companies/user/${userId}`);
+      let companyId;
   
-      if (!companyRes.ok) {
-        throw new Error("Failed to create company");
+      if (companyCheck.ok) {
+        const companyData = await companyCheck.json();
+        companyId = companyData.id;
+      } else {
+        // STEP 2 — If not, create the company
+        const companyRes = await fetch("http://localhost:8080/companies", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: companyName,
+            industry: industry,
+            location: location,
+            user: { id: parseInt(userId) }
+          })
+        });
+  
+        if (!companyRes.ok) throw new Error("Failed to create company");
+  
+        const companyData = await companyRes.json();
+        companyId = companyData.id;
       }
   
-      const companyData = await companyRes.json();
-      const companyId = companyData.id;
-  
-      // STEP 2 — Post placement (job)
+      // STEP 3 — Post placement
       const placementRes = await fetch("http://localhost:8080/placements", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -45,13 +52,11 @@ document.getElementById("postJobForm").addEventListener("submit", async function
           title: title,
           description: description,
           requirements: requirements,
-          company: { id: parseInt(companyId) }  // ✅ Correct casting here
+          company: { id: parseInt(companyId) }
         })
       });
   
-      if (!placementRes.ok) {
-        throw new Error("Failed to post job");
-      }
+      if (!placementRes.ok) throw new Error("Failed to post job");
   
       alert("Job posted successfully!");
       window.location.href = "company-dashboard.html";
