@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Job | InterLink</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 5rem auto;
+      background: #fff;
+      padding: 3rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #27ae60;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1.4rem;
+    }
+
+    .form-group textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: #27ae60;
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      font-size: 1.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #219150;
+    }
+
+    input[disabled] {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-1">
+      <a href="company-dashboard.html" class="logo"><i class="fas fa-university"></i> InterLink</a>
+      <div class="auth-buttons1">
+        <a href="login.html" class="btn-outline filled">Sign Out</a>
+      </div>
+    </div>
+
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="postjob.html">Post Job</a>
+        <a href="myjobs.html">My Jobs</a>
+        <a href="applications.html">Applications</a>
+        <a href="shortlisted.html">Shortlisted</a>
+        <a href="Alljobs.html">All Jobs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Edit Job Form -->
+  <div class="container">
+    <h2>Post A Job Opening</h2>
+    <form id="editJobForm">
+      <div class="form-group">
+        <label for="name">Company Name</label>
+        <input type="text" id="name" disabled />
+      </div>
+
+      <div class="form-group">
+        <label for="industry">Industry</label>
+        <input type="text" id="industry" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" required />
+      </div>
+
+      <div class="form-group">
+        <label for="title">Job Title</label>
+        <input type="text" id="title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Job Description</label>
+        <textarea id="description" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="requirements">Requirements</label>
+        <textarea id="requirements" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Job</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <section class="footer" id="footer">
+    <div class="credit">© <span>InterLink</span> | Developed by Jared Thomas</div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const jobId = new URLSearchParams(window.location.search).get("id");
+      if (!jobId) {
+        alert("Missing job ID in URL.");
+        return;
+      }
+
+      try {
+        const res = await fetch(`http://localhost:8080/placements/${jobId}`);
+        if (!res.ok) throw new Error("Failed to load job.");
+        const job = await res.json();
+
+        // Fill form fields
+        document.getElementById("title").value = job.title || "";
+        document.getElementById("description").value = job.description || "";
+        document.getElementById("requirements").value = job.requirements || "";
+        document.getElementById("industry").value = job.company?.industry || "";
+        document.getElementById("location").value = job.company?.location || "";
+        document.getElementById("name").value = job.company?.name || "";
+
+        // Submit handler
+        document.getElementById("editJobForm").addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const updated = {
+            title: document.getElementById("title").value,
+            description: document.getElementById("description").value,
+            requirements: document.getElementById("requirements").value,
+            company: {
+              id: job.company.id,
+              name: job.company.name,
+              industry: document.getElementById("industry").value,
+              location: document.getElementById("location").value
+            }
+          };
+
+          const updateRes = await fetch(`http://localhost:8080/placements/${jobId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updated)
+          });
+
+          if (!updateRes.ok) throw new Error("Update failed.");
+
+          alert("Job updated successfully!");
+          window.location.href = "myjobs.html";
+        });
+      } catch (err) {
+        alert("Error loading job: " + err.message);
+      }
+    });
+  </script>
+
+</body>
+</html>
